@@ -65,7 +65,6 @@ function writeToFile() {
 inquirer
     .prompt(questions)
     .then((answers) => { 
-      console.log(icon)
       var icon = answers.License;
       switch (icon) {
       
@@ -151,11 +150,8 @@ inquirer
     
 }
 
-// TODO: Create a function to initialize app
 function init() {
 writeToFile();
 }
-
-// Function call to initialize app
 
 init();

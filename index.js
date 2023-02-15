@@ -120,7 +120,7 @@ inquirer
   ${answers.Description}
 
 ## Table of Contents
-  [${answers.TableofContents}](${answers.TableofContents})
+  [${answers.TableofContents}](##${answers.TableofContents.toLowerCase})
 
 ## Installation
   ${answers.Installation}
@@ -138,7 +138,7 @@ inquirer
   ${answers.Tests}
 
 ## Questions
-  [GitHub](www.github.com/${answers.GitHub}) 
+  [GitHub](https://www.github.com/${answers.GitHub}) 
   Email: ${answers.email}
   `
     , function (err) {

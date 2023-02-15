@@ -12,7 +12,7 @@ const questions = [
     default: null },
     
     {name:'TableofContents',
-    message: 'If your README is long, add a table of contents to make it easy for users to find what they need:',
+    message: 'Add a link to another section of your READme if your READme is too long.',
     default: null },
 
     {name:'Installation',
@@ -59,7 +59,6 @@ const questions = [
 
 ];
 
-// TODO: Create a function to write README file
 function writeToFile() {
  
 inquirer
@@ -121,7 +120,7 @@ inquirer
   ${answers.Description}
 
 ## Table of Contents
-  ${answers.TableofContents}
+  [${answers.TableofContents}](${answers.TableofContents})
 
 ## Installation
   ${answers.Installation}
@@ -139,7 +138,7 @@ inquirer
   ${answers.Tests}
 
 ## Questions
-  GitHub: www.github.com/${answers.GitHub}
+  [GitHub](www.github.com/${answers.GitHub}) 
   Email: ${answers.email}
   `
     , function (err) {
@@ -151,6 +150,15 @@ inquirer
 }
 
 function init() {
+  function getAnswers() {
+    return inquirer.prompt(TableofContents).then((answers) => {
+      if (answers.is_finished) {
+        return answers;
+      } else {
+        return getAnswers();
+      }
+    });
+  }
 writeToFile();
 }
 

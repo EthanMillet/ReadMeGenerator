@@ -60,10 +60,11 @@ const questions = [
 ];
 
 function writeToFile() {
- 
+
 inquirer
     .prompt(questions)
     .then((answers) => { 
+      var TableofContents = answers.TableofContents.toLowerCase();
       var icon = answers.License;
       switch (icon) {
       
@@ -120,7 +121,7 @@ inquirer
   ${answers.Description}
 
 ## Table of Contents
-  [${answers.TableofContents}](##${answers.TableofContents.toLowerCase})
+  [${answers.TableofContents}](#${TableofContents})
 
 ## Installation
   ${answers.Installation}
